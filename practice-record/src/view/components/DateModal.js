@@ -1,5 +1,5 @@
 // Create modal for each date that allows user to enter practice time, This should be able to be added together for a weekly total eventually
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -18,13 +18,13 @@ const style = {
 };
 
 function DateModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button>()</Button>
+      <Button onClick={handleOpen}> </Button>
       <Modal
         open={open}
         onClose={handleClose}

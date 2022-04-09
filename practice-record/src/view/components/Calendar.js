@@ -94,6 +94,7 @@ function Calendar () {
 
   const onDateClick = () => {
     setSelectedDate(selectedDate)
+    console.log("this is working Correctly")
     return (
       <DateModal />
     )
@@ -116,7 +117,7 @@ function Calendar () {
       <div className="calendar">
         {renderHeader()}
         {renderDays()}
-        {renderCells()}
+        {renderCells(() => onDateClick())}
       </div>
       <PointDashboard />
     </div>
