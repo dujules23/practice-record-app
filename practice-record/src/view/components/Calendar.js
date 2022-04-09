@@ -3,6 +3,7 @@ import * as dateFns from "date-fns";
 
 import './Calendar.css';
 import PointDashboard from "./PointDashboard";
+import useModal from '../../common/hooks/useModal';
 import DateModal from './DateModal';
 
 
@@ -10,6 +11,7 @@ function Calendar () {
   //Possible hook 
   const [currentMonth, setCurrentMonth] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState(new Date())
+  const { isShowing, toggle } = useModal();
 
   const renderHeader = () => {
     const dateFormat = "MMMM yyyy";
@@ -93,10 +95,13 @@ function Calendar () {
 
 
   const onDateClick = () => {
-    setSelectedDate(selectedDate)
+    // setSelectedDate(selectedDate)
     console.log("this is working Correctly")
     return (
-      <DateModal />
+      <DateModal 
+        isShowing={isShowing}
+        hide={toggle}
+      />
     )
   };
 
@@ -117,7 +122,7 @@ function Calendar () {
       <div className="calendar">
         {renderHeader()}
         {renderDays()}
-        {renderCells(() => onDateClick())}
+        {renderCells()}
       </div>
       <PointDashboard />
     </div>
