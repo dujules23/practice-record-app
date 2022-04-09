@@ -96,12 +96,14 @@ function Calendar () {
 
   const onDateClick = () => {
     // setSelectedDate(selectedDate)
-    console.log("this is working Correctly")
+    console.log("this is working correctly")
     return (
-      <DateModal 
-        isShowing={isShowing}
-        hide={toggle}
-      />
+      <button onClick={toggle} >
+        <DateModal 
+          isShowing={isShowing}
+          hide={toggle}
+        />
+      </button>
     )
   };
 
