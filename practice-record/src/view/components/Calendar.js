@@ -11,7 +11,8 @@ function Calendar () {
   //Possible hook 
   const [currentMonth, setCurrentMonth] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const { isShowing, toggle } = useModal();
+  
+  const [isShowing, setIsShowing] = useState(false);
 
   const renderHeader = () => {
     const dateFormat = "MMMM yyyy";
@@ -97,14 +98,7 @@ function Calendar () {
   const onDateClick = () => {
     // setSelectedDate(selectedDate)
     console.log("this is working correctly")
-    return (
-      <button onClick={toggle} >
-        <DateModal 
-          isShowing={isShowing}
-          hide={toggle}
-        />
-      </button>
-    )
+    setIsShowing(true); 
   };
 
   const nextMonth = () => {
@@ -125,6 +119,10 @@ function Calendar () {
         {renderHeader()}
         {renderDays()}
         {renderCells()}
+        <DateModal 
+          isShowing={isShowing}
+          setIsShowing={setIsShowing}
+        />
       </div>
       <PointDashboard />
     </div>
