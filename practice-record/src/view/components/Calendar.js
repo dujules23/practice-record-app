@@ -3,7 +3,6 @@ import * as dateFns from "date-fns";
 
 import './Calendar.css';
 import PointDashboard from "./PointDashboard";
-import useModal from '../../common/hooks/useModal';
 import DateModal from './DateModal';
 
 
